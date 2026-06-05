@@ -1,9 +1,10 @@
 import httpx
+import os
 from fastmcp import FastMCP
 
 mcp = FastMCP("SAP Cloud ALM")
 
-API_KEY = "YOUR_API_KEY"
+API_KEY = os.getenv("SAP_API_KEY")
 
 headers = {
     "APIKey": API_KEY,
@@ -11,7 +12,7 @@ headers = {
 }
 
 @mcp.tool
-async def get_alm_projects():
+async def get_calm_projects():
     """Get all SAP Cloud ALM projects from the sandbox."""
     async with httpx.AsyncClient(timeout=30) as client:
         response = await client.get(
