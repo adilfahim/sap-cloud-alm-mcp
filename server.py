@@ -6,13 +6,16 @@ mcp = FastMCP("SAP Cloud ALM")
 
 API_KEY = os.getenv("SAP_API_KEY")
 
+if not API_KEY:
+    raise ValueError("SAP_API_KEY environment variable is not set")
+
 headers = {
     "APIKey": API_KEY,
     "Accept": "application/json"
 }
 
 @mcp.tool
-async def get_calm_projects():
+async def get_alm_projects():
     """Get all SAP Cloud ALM projects from the sandbox."""
     async with httpx.AsyncClient(timeout=30) as client:
         response = await client.get(
