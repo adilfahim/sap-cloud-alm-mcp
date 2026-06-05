@@ -10,7 +10,7 @@ if not API_KEY:
     raise ValueError("SAP_API_KEY environment variable is not set")
 
 headers = {
-    "APIKey": API_KEY,
+    "APIKey": API_KEY,.strip(),
     "Accept": "application/json"
 }
 
