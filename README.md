@@ -1,5 +1,3 @@
-# sap-cloud-alm-mcp
-SAP Cloud ALM Sandbox MCP Server Refrence
 # SAP Cloud ALM Sandbox MCP Server
 
 A lightweight **Model Context Protocol (MCP)** server that exposes selected **SAP Cloud ALM Sandbox APIs** as MCP tools.
