@@ -32,6 +32,7 @@ This MCP server exposes SAP Cloud ALM Sandbox APIs as MCP tools.
 | `get_alm_tasks`         | List all SAP Cloud ALM tasks             |
 | `get_alm_deliverables`  | List all SAP Cloud ALM deliverables      |
 
+Tasks and Deliverables will requires to input specific Project ID to the fetch current data.
 ---
 
 ## Architecture
