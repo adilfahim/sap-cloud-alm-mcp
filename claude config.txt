@@ -8,8 +8,11 @@
         "httpx",
         "--with",
         "fastmcp",
-        "you_localtion\\server.py"
-      ]
+        "C:\\MCP\\sap-cloud-alm\\server.py"
+      ],
+      "env": {
+        "SAP_API_KEY": "YOUR_API_KEY"
+      }
     }
   }
 }
