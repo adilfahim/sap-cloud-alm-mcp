@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "sap-cloud-alm": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--with",
+        "httpx",
+        "--with",
+        "fastmcp",
+        "G:\\python\\learning\\python\\cloud-alm-git\\server.py"
+      ]
+    }
+  }
+}
