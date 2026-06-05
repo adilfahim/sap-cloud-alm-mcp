@@ -8,7 +8,7 @@
         "httpx",
         "--with",
         "fastmcp",
-        "G:\\python\\learning\\python\\cloud-alm-git\\server.py"
+        "you_localtion\\server.py"
       ]
     }
   }
