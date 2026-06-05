@@ -3,7 +3,7 @@ from fastmcp import FastMCP
 
 mcp = FastMCP("SAP Cloud ALM")
 
-API_KEY = "zF19jKgEpDcdkA66WsQUUjFrTiiy9SxU"
+API_KEY = "YOUR_API_KEY"
 
 headers = {
     "APIKey": API_KEY,
