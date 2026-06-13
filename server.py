@@ -1,5 +1,6 @@
-import httpx
 import os
+
+import httpx
 from fastmcp import FastMCP
 
 mcp = FastMCP("SAP Cloud ALM")
@@ -9,7 +10,7 @@ API_KEY = os.getenv("SAP_API_KEY")
 if not API_KEY:
     raise ValueError("SAP_API_KEY environment variable is not set")
 
-headers = {
+headers: dict[str, str] = {
     "APIKey": API_KEY.strip(),
     "Accept": "application/json"
 }
@@ -81,6 +82,34 @@ async def get_alm_deliverables():
 
     if response.status_code != 200:
         return {"error": "Failed to get Cloud ALM Deliverables", "status_code": response.status_code, "detail": response.text}
+
+    return response.json()
+
+@mcp.tool
+async def get_analytics_providers():
+    """Get all SAP Cloud ALM Analytics from the sandbox."""
+    async with httpx.AsyncClient(timeout=60) as client:
+        response = await client.get(
+            "https://sandbox.api.sap.com/SAPCALM/calm-analytics/v1/analytics/providers/data",
+            headers=headers
+        )
+
+    if response.status_code != 200:
+        return {"error": "Failed to get Cloud Analytics", "status_code": response.status_code, "detail": response.text}
+
+    return response.json()
+
+@mcp.tool
+async def get_health_monitoring():
+    """Get all SAP Cloud Health Monitoring from the sandbox."""
+    async with httpx.AsyncClient(timeout=60) as client:
+        response = await client.get(
+            "https://sandbox.api.sap.com/SAPCALM/calm-analytics/v1/odata/v4/analytics/Metrics",
+            headers=headers
+        )
+
+    if response.status_code != 200:
+        return {"error": "Failed to get Cloud Health Monitoring", "status_code": response.status_code, "detail": response.text}
 
     return response.json()
 
